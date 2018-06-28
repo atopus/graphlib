@@ -7,6 +7,22 @@ and directed multi-graphs along with algorithms that can be used with them.
 
 To learn more [see our Wiki](https://github.com/cpettitt/graphlib/wiki).
 
+# How to...
+
+## Test
+
+```
+make test
+make unit-test
+make browser-test
+```
+
+## Build
+
+```
+make
+```
+
 # License
 
 Graphlib is licensed under the terms of the MIT License. See the

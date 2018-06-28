@@ -33,6 +33,27 @@ describe("alg.postorder", function() {
     expect(nodes.indexOf("e")).to.be.lt(nodes.indexOf("c"));
   });
 
+  it("works from a non-root node", function() {
+    var g = new Graph();
+    g.setEdge("a", "b");
+    g.setPath(["a", "c", "d"]);
+    g.setEdge("c", "e");
+
+    var nodes = postorder(g, "c");
+    expect(_.sortBy(nodes)).to.eql(["c", "d", "e"]);
+  });
+
+  it("works the other way round", function() {
+    var g = new Graph();
+    g.setEdge("a", "b");
+    g.setPath(["a", "c", "d"]);
+    g.setEdge("c", "e");
+
+    var nodes = postorder(g, "c", true);
+    expect(_.sortBy(nodes)).to.eql(["a", "c"]);
+    expect(nodes.indexOf("c")).to.be.lt(nodes.indexOf("a"));
+  });
+
   it("works for an array of roots", function() {
     var g = new Graph();
     g.setEdge("a", "b");
